@@ -1,60 +1,52 @@
 import classes from "./ProductCardComponent.module.css";
+import classNames from "classnames/bind";
+const ctx = classNames.bind(classes);
 
-function ProductCardComponent() {
+function ProductCardComponent({ name, price, intro, details, colors }) {
   return (
     <>
-      <div className={classes["card-container"]}>
-        <h2 className={classes["card-header"]}>
-          converse chuck taylor all star low top
-        </h2>
+      <div className={ctx("card-container")}>
+        <h1 className={ctx("card-header")}>{name}</h1>
 
         <img
           src="./product-card-converse-chuck-taylor.png"
-          className={classes["product-image"]}
+          className={ctx("product-image")}
           alt="Product Image"
-          width={250}
-          height={250}
         ></img>
 
-        <div className={classes["basic-info"]}>
-          <div className={classes["purchase-info"]}>
-            <strong className={classes["price"]}>$66.00</strong>
-            <div className={classes["shipping"]}>free shipping</div>
+        <div className={ctx("basic-info")}>
+          <div className={ctx("purchase-info")}>
+            <strong className={ctx("price")}>${price}.00</strong>
+            <div className={ctx("shipping")}>free shipping</div>
           </div>
-          <div className={classes["intro"]}>
-            Ready to dress up or down, these classic canvas Chucks are an
-            everyday wardrobe staple.
-          </div>
-          <a href="#" className={classes["more-info"]}>
+          <div className={ctx("intro")}>{intro}</div>
+          <a href="#" className={ctx("more-info")}>
             More information &rarr;
           </a>
-          <div className={classes["colors"]}>
-            <div className={`${classes["box"]} ${classes["box-black"]}`}></div>
-            <div className={`${classes["box"]} ${classes["box-blue"]}`}></div>
-            <div className={`${classes["box"]} ${classes["box-red"]}`}></div>
-            <div className={`${classes["box"]} ${classes["box-yellow"]}`}></div>
-            <div className={`${classes["box"]} ${classes["box-green"]}`}></div>
-            <div className={`${classes["box"]} ${classes["box-brown"]}`}></div>
+          <div className={ctx("colors")}>
+            {colors.map((color) => (
+              <div
+                key={color}
+                className={ctx("box")}
+                style={{ backgroundColor: color }}
+              ></div>
+            ))}
           </div>
         </div>
 
-        <div className={classes["details"]}>
-          <p className={classes["details-header"]}>product details</p>
-          <ul className={classes["details-list"]}>
-            <li>
-              <p>Lightweight, durable canvas sneaker.</p>
-            </li>
-            <li>
-              <p>Lightly padded footbed for added comfort.</p>
-            </li>
-            <li>
-              <p>Iconic Chuck Taylor ankle patch.</p>
-            </li>
+        <div className={ctx("details")}>
+          <h2 className={ctx("details-header")}>product details</h2>
+          <ul className={ctx("details-list")}>
+            {details.map((detail) => (
+              <li key={detail} className={`${ctx("details-list-item")}`}>
+                {detail}
+              </li>
+            ))}
           </ul>
         </div>
 
-        <div className={classes["cart-button"]}>
-          <p className={classes["p-no-margin"]}>add to cart</p>
+        <div className={ctx("cart-button")}>
+          <p className={ctx("p-no-margin")}>add to cart</p>
         </div>
       </div>
     </>
