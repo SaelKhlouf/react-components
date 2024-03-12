@@ -16,10 +16,10 @@ function App() {
   };
 
   return (
-    <div className="Container">
+    <section className="card-section">
       <h1>Product Card Component</h1>
       <ProductCardComponent {...product}></ProductCardComponent>
-    </div>
+    </section>
   );
 }
 

@@ -80,8 +80,8 @@
 }
 
 .box {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
 }
 
 .cart-button {
@@ -97,6 +97,7 @@
   flex-direction: column;
   justify-content: center;
   font-size: var(--fs-3);
+  grid-column: 1 / span 4;
 }
 
 .cart-button:hover {
@@ -106,8 +107,8 @@
 
 .product-image {
   grid-area: product-image;
-  width: 250px;
-  height: 250px;
+  width: 100%;
+  aspect-ratio: 1 / 1.1;
 }
 
 .basic-info {
